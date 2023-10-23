@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3e01s5h7boqp"]
+
+[ext_resource type="Script" path="res://screenshot/viewport test.gd" id="1_qwqqo"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qwqqo")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(800, 800)
+render_target_update_mode = 4
+
+[node name="Control" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 400.0
+offset_top = 400.0
+offset_right = 500.0
+offset_bottom = 500.0

@@ -1,0 +1,178 @@
+[gd_scene load_steps=12 format=3 uid="uid://dfbjxd4s2mhoi"]
+
+[ext_resource type="Script" path="res://Main/ProjectFileManager/scripts/ProjectFileManager.gd" id="1_6xq8e"]
+[ext_resource type="Script" path="res://Main/ProjectFileManager/scripts/import.gd" id="1_436nk"]
+[ext_resource type="Script" path="res://Main/ProjectFileManager/scripts/createfile.gd" id="3_2o04p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvh6j"]
+bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v18gn"]
+bg_color = Color(0.533333, 0.898039, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_si13c"]
+bg_color = Color(0.392157, 0.670588, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wqd67"]
+bg_color = Color(0.270588, 0.47451, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ius0y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43v82"]
+content_margin_left = 2048.0
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_dn6yp"]
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_43v82")
+VScrollBar/styles/grabber_highlight = null
+VScrollBar/styles/grabber_pressed = null
+VScrollBar/styles/scroll = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a0olb"]
+bg_color = Color(0.137255, 0.137255, 0.137255, 1)
+
+[node name="ProjectFileManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6xq8e")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+vertical = true
+
+[node name="filepanel" type="Panel" parent="BoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dvh6j")
+
+[node name="BoxContainer" type="BoxContainer" parent="BoxContainer/filepanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 11.0
+offset_right = -17.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="filebox" type="BoxContainer" parent="BoxContainer/filepanel/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="import" type="Button" parent="BoxContainer/filepanel/BoxContainer/filebox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_v18gn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_si13c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wqd67")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ius0y")
+text = "استيراد"
+script = ExtResource("1_436nk")
+
+[node name="createfile" type="Button" parent="BoxContainer/filepanel/BoxContainer/filebox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_v18gn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_si13c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wqd67")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ius0y")
+text = "جديد"
+script = ExtResource("3_2o04p")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.4
+theme = SubResource("Theme_dn6yp")
+theme_override_styles/panel = SubResource("StyleBoxFlat_a0olb")
+scroll_deadzone = 5
+
+[node name="BoxContainer" type="BoxContainer" parent="BoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+vertical = true
+
+[node name="pathPanel" type="Panel" parent="BoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dvh6j")
+
+[node name="BoxContainer" type="BoxContainer" parent="BoxContainer/pathPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 11.0
+offset_right = -17.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="up" type="Button" parent="BoxContainer/pathPanel/BoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_v18gn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_si13c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wqd67")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ius0y")
+text = "     ^     "
+
+[node name="Label" type="Label" parent="BoxContainer/pathPanel/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "مدير الملفات"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[connection signal="pressed" from="BoxContainer/pathPanel/BoxContainer/up" to="." method="_on_up_pressed"]

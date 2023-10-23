@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://y8foyo3fd6wi"]
+
+[ext_resource type="Script" path="res://Main/ProjectFileManager/scripts/File.gd" id="1_upuag"]
+[ext_resource type="PackedScene" uid="uid://dfjukyau5egf6" path="res://animation/fileanimation.tscn" id="2_h3oof"]
+[ext_resource type="Script" path="res://Main/ProjectFileManager/scripts/openfile.gd" id="2_mn2w1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sf2e2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ug6wg"]
+bg_color = Color(0.756863, 1, 0.54902, 1)
+border_color = Color(0.603922, 0.603922, 0.603922, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.12549)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_buqco"]
+bg_color = Color(0.654902, 1, 0.427451, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_color = Color(0, 0, 0, 0.054902)
+shadow_size = 30
+shadow_offset = Vector2(0, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e12i2"]
+bg_color = Color(0.45098, 0.87451, 0.262745, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.0941176)
+shadow_size = 50
+
+[node name="Folder" type="Control"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_upuag")
+
+[node name="Control" parent="." instance=ExtResource("2_h3oof")]
+layout_mode = 1
+
+[node name="BoxContainer" type="BoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="button" type="Button" parent="Control/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.286275, 0.286275, 0.286275, 1)
+theme_override_colors/font_hover_color = Color(0.501961, 0.486275, 0.462745, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.368627, 0.368627, 0.368627, 1)
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sf2e2")
+text = "folder"
+flat = true
+script = ExtResource("2_mn2w1")
+
+[node name="button2" type="Button" parent="Control/BoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_ug6wg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_buqco")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e12i2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sf2e2")
+text = ">"
+flat = true
+
+[connection signal="button_down" from="Control/BoxContainer/button2" to="." method="_on_button_2_button_down"]
+[connection signal="button_up" from="Control/BoxContainer/button2" to="." method="_on_button_2_button_up"]

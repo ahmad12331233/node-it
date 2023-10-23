@@ -1,0 +1,259 @@
+[gd_scene load_steps=19 format=3 uid="uid://dmxo8ol23rh3n"]
+
+[ext_resource type="Script" path="res://Graph/scripts/Graph.gd" id="1_frnjh"]
+[ext_resource type="Script" path="res://Graph/scripts/MoveGraph.gd" id="1_ofwsb"]
+[ext_resource type="Script" path="res://Graph/scripts/ZoomLimit.gd" id="3_4ijst"]
+[ext_resource type="Script" path="res://Graph/scripts/Grid.gd" id="3_asg3h"]
+[ext_resource type="Script" path="res://Graph/scripts/ZoomSlider.gd" id="3_epkjp"]
+[ext_resource type="Script" path="res://Graph/scripts/worldOrigin.gd" id="4_41aa2"]
+[ext_resource type="Script" path="res://Graph/scripts/new.gd" id="6_2p0on"]
+[ext_resource type="Script" path="res://Graph/scripts/ControlBlock.gd" id="6_ry0d0"]
+[ext_resource type="Script" path="res://Graph/scripts/savebutton.gd" id="7_8yv40"]
+[ext_resource type="Script" path="res://Graph/scripts/AnimationPlayer.gd" id="10_7jrk5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5yh4e"]
+bg_color = Color(0.533333, 0.898039, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0, 0, 0, 0.14902)
+shadow_size = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p3kly"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rqfnc"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0.776471, 0.141176, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.109804)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_meggj"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0.964706, 0.364706, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3sity"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0.74902, 0.27451, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b1rnd"]
+
+[sub_resource type="Animation" id="Animation_tatjc"]
+resource_name = "open"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlowContainer:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(700, -0.25, 0, 0.7, -24.5, 8, -0.9, 11.5, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cw0sb"]
+_data = {
+"open": SubResource("Animation_tatjc")
+}
+
+[node name="grid" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_frnjh")
+metadata/hahaha = false
+
+[node name="garphwindow" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_ofwsb")
+
+[node name="Zoom" type="Control" parent="garphwindow"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.00015
+offset_top = -5.0
+offset_right = 5.00015
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_4ijst")
+
+[node name="Line2D" type="Line2D" parent="garphwindow/Zoom"]
+script = ExtResource("3_asg3h")
+
+[node name="worldOrigin" type="Control" parent="garphwindow/Zoom"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("4_41aa2")
+
+[node name="Control" type="Control" parent="garphwindow"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_ry0d0")
+
+[node name="FlowContainer" type="FlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = -7.99915
+grow_vertical = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+alignment = 2
+vertical = true
+
+[node name="editmode" type="Button" parent="FlowContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_5yh4e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5yh4e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5yh4e")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p3kly")
+text = "> <"
+
+[node name="Panel2" type="Panel" parent="FlowContainer"]
+custom_minimum_size = Vector2(40, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5yh4e")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="FlowContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 8.0
+offset_right = -4.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="FlowContainer/Panel2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+vertical = true
+
+[node name="new" type="Button" parent="FlowContainer/Panel2/ScrollContainer/BoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.541176, 0.541176, 0.541176, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.607843, 0.607843, 0.607843, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_rqfnc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_meggj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3sity")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b1rnd")
+text = "+
+"
+flat = true
+script = ExtResource("6_2p0on")
+
+[node name="save" type="Button" parent="FlowContainer/Panel2/ScrollContainer/BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.396078, 0.396078, 0.396078, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.345098, 0.345098, 0.345098, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_rqfnc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_meggj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3sity")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b1rnd")
+text = "s"
+flat = true
+script = ExtResource("7_8yv40")
+
+[node name="ZoomPanel" type="Panel" parent="FlowContainer"]
+custom_minimum_size = Vector2(40, 150)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5yh4e")
+
+[node name="VSlider" type="VSlider" parent="FlowContainer/ZoomPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 14.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 2.5
+max_value = 20.0
+step = 0.001
+value = 2.5
+script = ExtResource("3_epkjp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cw0sb")
+}
+script = ExtResource("10_7jrk5")
+
+[connection signal="pressed" from="FlowContainer/editmode" to="." method="_on_editmode_pressed"]
+[connection signal="value_changed" from="FlowContainer/ZoomPanel/VSlider" to="FlowContainer/ZoomPanel/VSlider" method="_on_value_changed"]

@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://dt8bof1bd00r2"]
+
+[ext_resource type="Script" path="res://MiniWindow/scripts/graph.gd" id="1_l1rm5"]
+[ext_resource type="Script" path="res://MiniWindow/scripts/windowbutton.gd" id="2_pkwur"]
+[ext_resource type="Script" path="res://MiniWindow/scripts/resizeButton.gd" id="3_ishl5"]
+[ext_resource type="Script" path="res://MiniWindow/scripts/closebutton.gd" id="4_vqs57"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j0klt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4tt16"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a6o6r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dcwre"]
+
+[node name="png" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_l1rm5")
+
+[node name="buttonpanel" type="Button" parent="." node_paths=PackedStringArray("movenode", "mainNode")]
+clip_children = 1
+layout_mode = 0
+offset_right = 272.0
+offset_bottom = 242.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j0klt")
+flat = true
+script = ExtResource("2_pkwur")
+movenode = NodePath("..")
+mainNode = NodePath("..")
+
+[node name="Panel" type="Panel" parent="buttonpanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4tt16")
+
+[node name="Label" type="Label" parent="buttonpanel/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 35
+text = "Graph name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="resize" type="Button" parent="buttonpanel" node_paths=PackedStringArray("movenode", "mainNode")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = -32.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a6o6r")
+text = "."
+flat = true
+script = ExtResource("3_ishl5")
+movenode = NodePath("..")
+mainNode = NodePath("../..")
+
+[node name="close" type="Button" parent="buttonpanel"]
+layout_mode = 1
+offset_right = 28.0
+offset_bottom = 28.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dcwre")
+text = "X"
+flat = true
+script = ExtResource("4_vqs57")
+
+[connection signal="button_down" from="buttonpanel" to="buttonpanel" method="_on_button_down"]
+[connection signal="button_up" from="buttonpanel" to="buttonpanel" method="_on_button_up"]
+[connection signal="button_down" from="buttonpanel/resize" to="buttonpanel/resize" method="_on_button_down"]
+[connection signal="button_up" from="buttonpanel/resize" to="buttonpanel/resize" method="_on_button_up"]
+[connection signal="pressed" from="buttonpanel/close" to="buttonpanel/close" method="_on_pressed"]

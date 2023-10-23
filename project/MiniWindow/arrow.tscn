@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx531whgsixge"]
+
+[ext_resource type="Script" path="res://MiniWindow/scripts/arrow.gd" id="1_7ywk0"]
+[ext_resource type="PackedScene" uid="uid://c6sbpb3e6ixbd" path="res://arrow/arrow.tscn" id="1_anf2f"]
+
+[node name="arrow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_7ywk0")
+
+[node name="arrow" parent="." instance=ExtResource("1_anf2f")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.049
+anchor_right = 0.0
+anchor_bottom = 0.049
+offset_left = -1488.0
+offset_top = -999.752
+offset_right = 1712.0
+offset_bottom = 880.248
+mouse_filter = 0

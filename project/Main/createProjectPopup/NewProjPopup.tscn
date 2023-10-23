@@ -1,0 +1,303 @@
+[gd_scene load_steps=14 format=3 uid="uid://r2h17a3farhf"]
+
+[ext_resource type="Script" path="res://Main/createProjectPopup/scripts/Cancel.gd" id="1_80i53"]
+[ext_resource type="Script" path="res://Main/createProjectPopup/scripts/HV.gd" id="1_xmg3n"]
+[ext_resource type="Script" path="res://Main/createProjectPopup/scripts/selectLocation.gd" id="2_cke8v"]
+[ext_resource type="Script" path="res://Main/createProjectPopup/scripts/isvalid_check.gd" id="3_oqlsl"]
+[ext_resource type="Script" path="res://Main/createProjectPopup/scripts/CreateProjectButton.gd" id="4_i6t3u"]
+[ext_resource type="PackedScene" uid="uid://c0h36q7mxwork" path="res://animation/animation.tscn" id="6_c88aj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6mjup"]
+bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.12549)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymhn1"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.203922, 0.203922, 0.203922, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0, 0, 0, 0.0862745)
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bx5yg"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.392157, 0.992157, 0.376471, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_color = Color(0, 0, 0, 0.243137)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmbep"]
+bg_color = Color(0.533333, 0.898039, 0, 1)
+border_color = Color(0.603922, 0.603922, 0.603922, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6hyi"]
+bg_color = Color(0.556863, 0.937255, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_color = Color(0, 0, 0, 0.054902)
+shadow_size = 30
+shadow_offset = Vector2(0, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxpch"]
+bg_color = Color(0.482353, 0.815686, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 0.0941176)
+shadow_size = 50
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_43axq"]
+
+[node name="NewProjPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" parent="." instance=ExtResource("6_c88aj")]
+layout_mode = 1
+
+[node name="popupPanel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.091
+anchor_top = 0.149
+anchor_right = 0.907
+anchor_bottom = 0.858
+offset_left = -0.252007
+offset_top = -0.0272942
+offset_right = -0.204041
+offset_bottom = 0.0643005
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6mjup")
+
+[node name="BoxContainer" type="BoxContainer" parent="Control/popupPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = 15.0
+offset_right = -25.0799
+offset_bottom = -25.5249
+grow_horizontal = 2
+grow_vertical = 2
+vertical = true
+
+[node name="Control2" type="Control" parent="Control/popupPanel/BoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/popupPanel/BoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "مشروع جديد"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="Control/popupPanel/BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="ProjStat" type="BoxContainer" parent="Control/popupPanel/BoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_right = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+theme_override_constants/separation = 20
+vertical = true
+
+[node name="name" type="BoxContainer" parent="Control/popupPanel/BoxContainer/Control/ProjStat"]
+layout_mode = 2
+script = ExtResource("1_xmg3n")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/popupPanel/BoxContainer/Control/ProjStat/name"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0.937255, 0.937255, 0.937255, 1)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/selection_color = Color(0.701961, 0.701961, 0.701961, 1)
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+text = "اسم المشروع"
+fit_content = true
+
+[node name="LineEdit" type="LineEdit" parent="Control/popupPanel/BoxContainer/Control/ProjStat/name"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_selected_color = Color(0.470588, 0.470588, 0.470588, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 0.45098)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ymhn1")
+theme_override_styles/focus = SubResource("StyleBoxFlat_bx5yg")
+text = "مشروع جديد"
+alignment = 1
+
+[node name="location" type="BoxContainer" parent="Control/popupPanel/BoxContainer/Control/ProjStat"]
+layout_mode = 2
+script = ExtResource("1_xmg3n")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/popupPanel/BoxContainer/Control/ProjStat/location"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0.901961, 0.901961, 0.901961, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0.701961, 0.701961, 0.701961, 1)
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+text = "الموقع"
+fit_content = true
+
+[node name="BoxContainer" type="BoxContainer" parent="Control/popupPanel/BoxContainer/Control/ProjStat/location"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+theme_override_constants/separation = 20
+
+[node name="LineEdit" type="LineEdit" parent="Control/popupPanel/BoxContainer/Control/ProjStat/location/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_selected_color = Color(0.498039, 0.498039, 0.498039, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 0.45098)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ymhn1")
+theme_override_styles/focus = SubResource("StyleBoxFlat_bx5yg")
+text = "/sdcard/projects"
+alignment = 1
+
+[node name="select" type="Button" parent="Control/popupPanel/BoxContainer/Control/ProjStat/location/BoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_nmbep")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y6hyi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nxpch")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_43axq")
+text = "  اختيار  "
+script = ExtResource("2_cke8v")
+
+[node name="Label" type="Label" parent="Control/popupPanel/BoxContainer/Control/ProjStat"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.843137, 0.843137, 0.843137, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 20
+text = "text"
+horizontal_alignment = 1
+autowrap_mode = 3
+script = ExtResource("3_oqlsl")
+
+[node name="confirmPanel" type="BoxContainer" parent="Control/popupPanel/BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 40
+
+[node name="Cancel" type="Button" parent="Control/popupPanel/BoxContainer/confirmPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_nmbep")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y6hyi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nxpch")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_43axq")
+text = "الغاء"
+script = ExtResource("1_80i53")
+
+[node name="Ok" type="Button" parent="Control/popupPanel/BoxContainer/confirmPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_nmbep")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y6hyi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nxpch")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_43axq")
+text = "انشئ"
+script = ExtResource("4_i6t3u")
+
+[connection signal="on_close" from="Control" to="Control/popupPanel/BoxContainer/confirmPanel/Cancel" method="_on_control_on_close"]

@@ -1,0 +1,67 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="testing"
+config/tags=PackedStringArray("graph_app")
+run/main_scene="res://Main/MainAndroidFlat.tscn"
+config/features=PackedStringArray("4.1", "GL Compatibility")
+run/low_processor_mode=true
+boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
+boot_splash/image="res://noteIt.png"
+config/icon="res://mainicon.png"
+run/size/viewport_height=535
+run/size/viewport_width=814
+config/use_filter=true
+config/image=""
+config/show_image=true
+config/bg_color=Color(0.14, 0.14, 0.14, 1)
+
+[autoload]
+
+Events="*res://mainEvent/Events.gd"
+
+[compression]
+
+formats/zstd/long_distance_matching=true
+formats/zstd/compression_level=19
+formats/zlib/compression_level=9
+formats/gzip/compression_level=9
+
+[display]
+
+window/energy_saving/keep_screen_on=false
+window/handheld/orientation=6
+
+[filesystem]
+
+import/blender/enabled.android=true
+import/blender/enabled.web=true
+import/fbx/enabled.android=true
+import/fbx/enabled.web=true
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://Main/MainAndroidFlat.tscn", "res://Main/createProjectPopup/NewProjPopup.tscn", "res://Main/mainProjectScreen/MainProjectScreen.tscn", "res://Main/PopupFileManager/PopupFileManager.tscn", "res://Main/ProjectFileManager/graphname.tscn", "res://Main/ProjectFileManager/ProjectFileManager.tscn", "res://Main/titlebarButtons/TitleBar.tscn", "res://Graph/Graph.tscn", "res://Settings/settingsui.tscn")
+
+[rendering]
+
+rendering_device/driver="opengl3"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_s3tc_bptc=true
+textures/vram_compression/import_etc2_astc=true
+textures/default_filters/anisotropic_filtering_level=0
+anti_aliasing/screen_space_roughness_limiter/enabled=false

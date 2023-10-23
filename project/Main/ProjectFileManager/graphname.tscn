@@ -1,0 +1,204 @@
+[gd_scene load_steps=11 format=3 uid="uid://duxyafe2lvip7"]
+
+[ext_resource type="Script" path="res://Main/ProjectFileManager/scripts/graphname.gd" id="1_ic6j8"]
+[ext_resource type="PackedScene" uid="uid://c0h36q7mxwork" path="res://animation/animation.tscn" id="2_ix4bn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lh8r5"]
+bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+shadow_color = Color(0, 0, 0, 0.164706)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbnyh"]
+bg_color = Color(0.0313726, 0.0313726, 0.0313726, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ecbrn"]
+bg_color = Color(0.129412, 0.129412, 0.129412, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+shadow_color = Color(0, 0, 0, 0.647059)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_diu6s"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opc8x"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.533333, 0.898039, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_452jc"]
+bg_color = Color(0.552941, 0.929412, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpr43"]
+bg_color = Color(0.384314, 0.658824, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cd5g3"]
+
+[node name="graphname" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ic6j8")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" parent="." instance=ExtResource("2_ix4bn")]
+layout_mode = 1
+
+[node name="window" type="BoxContainer" parent="Control"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.109
+anchor_top = 0.253
+anchor_right = 0.883
+anchor_bottom = 0.74
+offset_left = 0.383995
+offset_top = 0.199493
+offset_right = -0.192017
+offset_bottom = -0.00152588
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+vertical = true
+
+[node name="Panel" type="Panel" parent="Control/window"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_lh8r5")
+
+[node name="BoxContainer2" type="BoxContainer" parent="Control/window/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 59.0
+offset_right = -14.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="LineEdit" type="LineEdit" parent="Control/window/Panel/BoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_selected_color = Color(0.52549, 0.52549, 0.52549, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_gbnyh")
+theme_override_styles/focus = SubResource("StyleBoxFlat_gbnyh")
+text = "جدول جديد"
+alignment = 1
+
+[node name="BoxContainer" type="BoxContainer" parent="Control/window/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -203.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Control/window/Panel/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
+text = "اسم الملف"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pathPanel" type="Panel" parent="Control/window"]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ecbrn")
+
+[node name="pathPanel2" type="Panel" parent="Control/window"]
+clip_children = 2
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_diu6s")
+
+[node name="BoxContainer" type="BoxContainer" parent="Control/window/pathPanel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 8.0
+offset_right = -19.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Button2" type="Button" parent="Control/window/pathPanel2/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_opc8x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_452jc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tpr43")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cd5g3")
+text = "الغاء"
+
+[node name="Button" type="Button" parent="Control/window/pathPanel2/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_opc8x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_452jc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tpr43")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cd5g3")
+text = "تاكيد
+"
+
+[connection signal="text_changed" from="Control/window/Panel/BoxContainer2/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="pressed" from="Control/window/pathPanel2/BoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Control/window/pathPanel2/BoxContainer/Button" to="." method="_on_button_pressed"]

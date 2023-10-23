@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=3 uid="uid://bird7q7k6l73d"]
+
+[ext_resource type="Script" path="res://MiniWindow/scripts/draw.gd" id="1_reefs"]
+[ext_resource type="Script" path="res://MiniWindow/scripts/windowbutton.gd" id="2_y5oq2"]
+[ext_resource type="PackedScene" uid="uid://c5f5yac5twauj" path="res://draw/vectordraw.tscn" id="3_eijyh"]
+[ext_resource type="Script" path="res://MiniWindow/scripts/resizeButton.gd" id="4_31p5k"]
+[ext_resource type="Script" path="res://MiniWindow/scripts/closebutton.gd" id="5_nkeld"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5vnl"]
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ojjke"]
+
+[node name="png" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_reefs")
+
+[node name="pngcontainer" type="Button" parent="." node_paths=PackedStringArray("movenode", "mainNode")]
+layout_mode = 0
+offset_right = 632.0
+offset_bottom = 427.0
+mouse_filter = 1
+flat = true
+script = ExtResource("2_y5oq2")
+movenode = NodePath("..")
+mainNode = NodePath("..")
+
+[node name="Panel" type="Panel" parent="pngcontainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_k5vnl")
+
+[node name="vectordraw" parent="pngcontainer" instance=ExtResource("3_eijyh")]
+clip_contents = true
+layout_mode = 1
+offset_left = 5.0
+offset_top = 36.0
+offset_right = -5.0
+offset_bottom = -26.0
+
+[node name="Button" type="Button" parent="pngcontainer" node_paths=PackedStringArray("movenode", "mainNode")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = -32.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "."
+flat = true
+script = ExtResource("4_31p5k")
+movenode = NodePath("..")
+mainNode = NodePath("../..")
+
+[node name="Button2" type="Button" parent="pngcontainer"]
+layout_mode = 1
+offset_right = 28.0
+offset_bottom = 28.0
+text = "X"
+flat = true
+script = ExtResource("5_nkeld")
+
+[node name="move" type="Button" parent="pngcontainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_right = 0.911
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 4.20799
+offset_bottom = 32.0
+grow_horizontal = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ojjke")
+text = "رسم"
+flat = true
+
+[connection signal="button_down" from="pngcontainer" to="pngcontainer" method="_on_button_down"]
+[connection signal="button_up" from="pngcontainer" to="pngcontainer" method="_on_button_up"]
+[connection signal="button_down" from="pngcontainer/Button" to="pngcontainer/Button" method="_on_button_down"]
+[connection signal="button_up" from="pngcontainer/Button" to="pngcontainer/Button" method="_on_button_up"]
+[connection signal="pressed" from="pngcontainer/Button2" to="pngcontainer/Button2" method="_on_pressed"]
+[connection signal="button_down" from="pngcontainer/move" to="pngcontainer" method="_on_move_button_down"]
+[connection signal="button_up" from="pngcontainer/move" to="pngcontainer" method="_on_move_button_up"]

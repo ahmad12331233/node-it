@@ -1,0 +1,235 @@
+[gd_scene load_steps=12 format=3 uid="uid://bbn018cf0e51f"]
+
+[ext_resource type="Script" path="res://Main/scripts/DemoGrid.gd" id="1_uwygr"]
+[ext_resource type="Script" path="res://Main/mainProjectScreen/scripts/newproj.gd" id="2_tv4bb"]
+[ext_resource type="Script" path="res://Main/mainProjectScreen/scripts/(HV)BoxContainer.gd" id="3_opawj"]
+[ext_resource type="Script" path="res://Main/mainProjectScreen/scripts/openproj.gd" id="4_oatb2"]
+[ext_resource type="Script" path="res://Main/mainProjectScreen/scripts/AnimationPlayer.gd" id="6_enb8m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bp721"]
+bg_color = Color(0.478431, 0.807843, 0, 1)
+border_color = Color(0.603922, 0.603922, 0.603922, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 0.12549)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghkh2"]
+bg_color = Color(0.533333, 0.898039, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 0.054902)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shvne"]
+bg_color = Color(0.443137, 0.752941, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 0.0941176)
+shadow_size = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tqf5v"]
+
+[sub_resource type="Animation" id="Animation_8gnlh"]
+resource_name = "open"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(301.5, -0.25, 0, 0.4, -267, 0, -1.3, 4.5, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/Control2/Control/Label:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(300, -0.25, 0, 1.2, -21.5, 0, -2, 36, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-300, -0.25, 0, 0.8, 606, 341, -1.8, -4, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-200, -0.25, 0, 0.2, 552, 398, -1.5, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer/BoxContainer/Control/openproj:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-500, -0.25, 0, 0.1, 477, 0, -1.7, -5, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i5kxx"]
+_data = {
+"open": SubResource("Animation_8gnlh")
+}
+
+[node name="Main Page" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 341.0
+offset_top = 398.0
+offset_right = 341.0
+offset_bottom = 398.0
+mouse_filter = 2
+script = ExtResource("1_uwygr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 27.5
+offset_right = -21.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control2" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="Control" type="Control" parent="VBoxContainer/Control2"]
+layout_mode = 1
+anchor_left = 0.108
+anchor_top = 0.236
+anchor_right = 0.966
+anchor_bottom = 0.885
+offset_left = -0.124001
+offset_top = 0.167992
+offset_right = 0.501953
+offset_bottom = -0.120026
+
+[node name="Label" type="Label" parent="VBoxContainer/Control2/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 0.000366211
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.756863, 0.756863, 0.756863, 1)
+theme_override_font_sizes/font_size = 40
+text = "اهلا بعودتك
+التطبيق جاهز  للتخطيط"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="BoxContainer" type="BoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 10
+script = ExtResource("3_opawj")
+changeSize = true
+
+[node name="Control" type="Control" parent="VBoxContainer/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="openproj" type="Button" parent="VBoxContainer/BoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_bp721")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ghkh2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_shvne")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tqf5v")
+text = "فتح مشروع"
+script = ExtResource("4_oatb2")
+
+[node name="Control2" type="Control" parent="VBoxContainer/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="newproj" type="Button" parent="VBoxContainer/BoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_bp721")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ghkh2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_shvne")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tqf5v")
+text = " مشروع جديد"
+script = ExtResource("2_tv4bb")
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_i5kxx")
+}
+script = ExtResource("6_enb8m")

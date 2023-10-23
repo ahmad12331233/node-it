@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsrlyf47xipi8"]
+
+[ext_resource type="Script" path="res://multiplayer/multiplayerUI.gd" id="1_d8w31"]
+
+[node name="multiplayerUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_d8w31")
+
+[node name="createserver" type="Button" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 16.0
+offset_right = 399.0
+offset_bottom = 127.0
+text = "start server"
+
+[node name="joinserver" type="Button" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 145.0
+offset_right = 400.0
+offset_bottom = 256.0
+text = "join server"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 23.0
+offset_right = 464.0
+offset_bottom = 73.0
+text = "kill"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 267.0
+offset_right = 420.0
+offset_bottom = 347.0
+
+[connection signal="pressed" from="createserver" to="." method="host"]
+[connection signal="pressed" from="joinserver" to="." method="join"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

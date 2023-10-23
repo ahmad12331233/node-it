@@ -1,0 +1,126 @@
+[gd_scene load_steps=9 format=3 uid="uid://mqew2uw53p5r"]
+
+[ext_resource type="Script" path="res://Main/titlebarButtons/scripts/TitleBar.gd" id="1_ws2qi"]
+[ext_resource type="Script" path="res://Main/titlebarButtons/scripts/settings.gd" id="2_s6pwh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssihf"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.498039, 0.839216, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i7bdj"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nbsdq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6asw"]
+bg_color = Color(0.682353, 0.964706, 0.568627, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65kw8"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.768627, 0.956863, 0.643137, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="Theme" id="Theme_6f0hc"]
+PopupMenu/colors/font_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_hover_color = Color(0, 0, 0, 1)
+PopupMenu/constants/v_separation = 25
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_f6asw")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_65kw8")
+
+[node name="TirleBar" type="HBoxContainer"]
+custom_minimum_size = Vector2(270, 40)
+theme_override_constants/separation = 10
+script = ExtResource("1_ws2qi")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ssihf")
+
+[node name="BoxContainer" type="BoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_right = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="settings" type="Button" parent="Panel/BoxContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.278431, 0.278431, 0.278431, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i7bdj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nbsdq")
+text = "اعدادات"
+flat = true
+script = ExtResource("2_s6pwh")
+
+[node name="edit" type="MenuButton" parent="Panel/BoxContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_6f0hc")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "تعديل"
+item_count = 2
+popup/item_0/text = "ترجيع"
+popup/item_0/id = 0
+popup/item_1/text = "تقديم"
+popup/item_1/id = 1
+
+[node name="project" type="MenuButton" parent="Panel/BoxContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_6f0hc")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "مشروع"
+item_count = 4
+popup/item_0/text = "جديد"
+popup/item_0/id = 0
+popup/item_1/text = "فتح"
+popup/item_1/id = 2
+popup/item_2/text = "حفظ"
+popup/item_2/id = 2
+popup/item_3/text = "استخراج"
+popup/item_3/id = 3

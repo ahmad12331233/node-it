@@ -1,0 +1,94 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6sbpb3e6ixbd"]
+
+[ext_resource type="Script" path="res://arrow/arrow.gd" id="1_nvgjf"]
+[ext_resource type="Script" path="res://arrow/arrowhead.gd" id="2_2na6u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s67di"]
+bg_color = Color(0.690196, 0.690196, 0.690196, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0, 0, 0, 0.211765)
+shadow_size = 5
+
+[node name="arrow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_nvgjf")
+
+[node name="Line2D" type="Line2D" parent="."]
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="endpoint" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("2_2na6u")
+
+[node name="Control" type="Control" parent="endpoint"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="endpoint/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_s67di")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s67di")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s67di")
+
+[node name="startpoint" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("2_2na6u")
+_first = true
+
+[node name="Control" type="Control" parent="startpoint"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="startpoint/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_s67di")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s67di")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s67di")
+
+[connection signal="pressed" from="endpoint/Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="startpoint/Control/Button" to="." method="_on_button_pressed"]

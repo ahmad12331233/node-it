@@ -1,0 +1,138 @@
+[gd_scene load_steps=7 format=3 uid="uid://byb0ynuivo1uq"]
+
+[ext_resource type="PackedScene" uid="uid://dfjukyau5egf6" path="res://animation/fileanimation.tscn" id="1_2g7pw"]
+[ext_resource type="Script" path="res://Settings/HSlider.gd" id="1_uf2rg"]
+[ext_resource type="Script" path="res://Settings/HSliader2.gd" id="2_n0jdc"]
+[ext_resource type="Script" path="res://Settings/CheckBox.gd" id="3_sg4iv"]
+[ext_resource type="Script" path="res://Settings/close.gd" id="5_t6vex"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1rhr"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="settingsui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" parent="Panel" instance=ExtResource("1_2g7pw")]
+layout_mode = 1
+offset_bottom = 0.0
+
+[node name="Panel" type="Panel" parent="Panel/Control"]
+clip_children = 2
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 72.0
+offset_top = 72.0
+offset_right = -80.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r1rhr")
+
+[node name="BoxContainer" type="BoxContainer" parent="Panel/Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 48.0
+offset_right = -32.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical = true
+
+[node name="BoxContainer" type="BoxContainer" parent="Panel/Control/Panel/BoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/Control/Panel/BoxContainer/BoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "حجم واجهة المستخدم"
+
+[node name="HSlider" type="HSlider" parent="Panel/Control/Panel/BoxContainer/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -0.2
+max_value = 0.2
+step = 0.001
+value = -0.2
+script = ExtResource("1_uf2rg")
+
+[node name="BoxContainer2" type="BoxContainer" parent="Panel/Control/Panel/BoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/Control/Panel/BoxContainer/BoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "  سرعة التحريك  "
+
+[node name="HSlider" type="HSlider" parent="Panel/Control/Panel/BoxContainer/BoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 0.1
+max_value = 5.0
+step = 0.01
+value = 0.1
+script = ExtResource("2_n0jdc")
+
+[node name="BoxContainer3" type="BoxContainer" parent="Panel/Control/Panel/BoxContainer"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="Panel/Control/Panel/BoxContainer/BoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+text = "تحريك سلس  ( يفضل عدم لمس هذا الخيار )"
+alignment = 1
+script = ExtResource("3_sg4iv")
+
+[node name="Button" type="Button" parent="Panel/Control/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_hover_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+text = "X
+"
+flat = true
+script = ExtResource("5_t6vex")
+
+[connection signal="drag_ended" from="Panel/Control/Panel/BoxContainer/BoxContainer/HSlider" to="Panel/Control/Panel/BoxContainer/BoxContainer/HSlider" method="_on_drag_ended"]
+[connection signal="value_changed" from="Panel/Control/Panel/BoxContainer/BoxContainer/HSlider" to="Panel/Control/Panel/BoxContainer/BoxContainer/HSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="Panel/Control/Panel/BoxContainer/BoxContainer2/HSlider" to="Panel/Control/Panel/BoxContainer/BoxContainer2/HSlider" method="_on_value_changed"]
+[connection signal="toggled" from="Panel/Control/Panel/BoxContainer/BoxContainer3/CheckBox" to="Panel/Control/Panel/BoxContainer/BoxContainer3/CheckBox" method="_on_toggled"]

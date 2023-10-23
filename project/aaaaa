@@ -1,0 +1,21 @@
+{
+	"disabled_build_options": {
+		"brotli": false,
+		"disable_2d_physics": true,
+		"disable_3d": true,
+		"disable_3d_physics": true,
+		"disable_navigation": true,
+		"graphite": false,
+		"module_freetype_enabled": false,
+		"module_msdfgen_enabled": false,
+		"module_text_server_adv_enabled": false,
+		"openxr": false,
+		"rendering_device": false,
+		"vulkan": false
+	},
+	"disabled_classes": [
+		"Node",
+		"Resource"
+	],
+	"type": "build_profile"
+}

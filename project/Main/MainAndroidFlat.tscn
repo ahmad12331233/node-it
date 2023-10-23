@@ -1,0 +1,413 @@
+[gd_scene load_steps=29 format=3 uid="uid://dp0ebnf6cycak"]
+
+[ext_resource type="Script" path="res://Main/scripts/MainAndroid.gd" id="1_n2hxi"]
+[ext_resource type="Script" path="res://Main/scripts/(HV)SplitContainer.gd" id="2_0741m"]
+[ext_resource type="PackedScene" uid="uid://dfbjxd4s2mhoi" path="res://Main/ProjectFileManager/ProjectFileManager.tscn" id="3_82fp3"]
+[ext_resource type="Script" path="res://Main/scripts/content.gd" id="4_btmsq"]
+[ext_resource type="PackedScene" uid="uid://bbn018cf0e51f" path="res://Main/mainProjectScreen/MainProjectScreen.tscn" id="5_4u2i3"]
+[ext_resource type="Script" path="res://Main/scripts/TabBar.gd" id="7_28xll"]
+[ext_resource type="PackedScene" uid="uid://mqew2uw53p5r" path="res://Main/titlebarButtons/TitleBar.tscn" id="8_t68rj"]
+[ext_resource type="Script" path="res://Main/scripts/fullscreen.gd" id="9_iyyr4"]
+[ext_resource type="Script" path="res://Main/scripts/AnimationPlayer.gd" id="10_64afu"]
+[ext_resource type="PackedScene" uid="uid://dmxo8ol23rh3n" path="res://Graph/Graph.tscn" id="11_lpxic"]
+[ext_resource type="PackedScene" uid="uid://dsrlyf47xipi8" path="res://multiplayer/multiplayerUI.tscn" id="12_enmv1"]
+[ext_resource type="PackedScene" uid="uid://ds84bqikdgjtl" path="res://MiniWindow/txt.tscn" id="13_vvfxo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ifu4"]
+bg_color = Color(0.121569, 0.121569, 0.121569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vrb8u"]
+bg_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.219608)
+shadow_size = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_exdfq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5der"]
+bg_color = Color(0.235294, 0.235294, 0.235294, 1)
+shadow_color = Color(0, 0, 0, 0.12549)
+shadow_size = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0vet7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssihf"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.498039, 0.839216, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swrhj"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.580392, 0.972549, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptirk"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.368627, 0.635294, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dkly2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jfliu"]
+content_margin_left = 20.0
+content_margin_top = 0.0
+content_margin_right = 20.0
+content_margin_bottom = 0.0
+bg_color = Color(0.498039, 0.839216, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.156863)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i203h"]
+content_margin_left = 20.0
+content_margin_top = 0.0
+content_margin_right = 20.0
+content_margin_bottom = 0.0
+bg_color = Color(0.470588, 0.796078, 0, 1)
+border_width_left = 4
+border_width_right = 4
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27no4"]
+content_margin_left = 20.0
+content_margin_top = 0.0
+content_margin_right = 20.0
+content_margin_bottom = 0.0
+bg_color = Color(0.392157, 0.670588, 0, 1)
+border_width_left = 4
+border_width_right = 4
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hl6r3"]
+bg_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.180392)
+shadow_size = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fm8da"]
+
+[sub_resource type="Animation" id="Animation_30nye"]
+resource_name = "open"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tabs/TabBar:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-200, -0.25, 0, 1.3, 2, 0, -1.7, -3, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tabs/Control/TitleBar:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1300, -0.25, 0, 0.4, -1044, 0, -2.1, 5, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tabs/Control2/fullscreen:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(100, -0.25, 0, 1.8, -3, 0, -1.4, -2, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("tabs/Control2/fullscreen:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rs1k3"]
+_data = {
+"open": SubResource("Animation_30nye")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n2hxi")
+
+[node name="window" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+theme_override_constants/separation = 0
+
+[node name="windowBackpanel" type="Panel" parent="window"]
+show_behind_parent = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 15.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0ifu4")
+
+[node name="windowholder" type="Control" parent="window/windowBackpanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainVbox" type="VBoxContainer" parent="window/windowBackpanel/windowholder"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="SplitContainer" type="SplitContainer" parent="window/windowBackpanel/windowholder/MainVbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+theme_override_constants/minimum_grab_thickness = 30
+vertical = true
+script = ExtResource("2_0741m")
+
+[node name="SplitContainer" type="SplitContainer" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 0
+theme_override_constants/minimum_grab_thickness = 30
+
+[node name="fileWindowH" type="Panel" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vrb8u")
+
+[node name="filewinclip" type="Panel" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/fileWindowH"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_exdfq")
+
+[node name="ProjectFileManager" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/fileWindowH/filewinclip" node_paths=PackedStringArray("window") instance=ExtResource("3_82fp3")]
+layout_mode = 1
+window = NodePath("../../../contentBackpanel/contentclip/content")
+
+[node name="contentBackpanel" type="Panel" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_b5der")
+
+[node name="contentclip" type="Panel" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_b5der")
+
+[node name="content" type="TabContainer" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0vet7")
+tabs_visible = false
+script = ExtResource("4_btmsq")
+
+[node name="Main Page" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip/content" instance=ExtResource("5_4u2i3")]
+layout_mode = 2
+
+[node name="tabs" type="FlowContainer" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip"]
+layout_direction = 3
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -11.0
+offset_bottom = 48.0
+grow_horizontal = 2
+
+[node name="Control2" type="Control" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip/tabs"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_stretch_ratio = 0.2
+
+[node name="fullscreen" type="Button" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip/tabs/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.541176, 0.541176, 0.541176, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_ssihf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_swrhj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ptirk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dkly2")
+text = " [ ] "
+script = ExtResource("9_iyyr4")
+
+[node name="Control" type="Control" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip/tabs"]
+custom_minimum_size = Vector2(270, 40)
+layout_mode = 2
+
+[node name="TitleBar" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip/tabs/Control" instance=ExtResource("8_t68rj")]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabBar" type="TabBar" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip/tabs"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+mouse_filter = 1
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hovered_color = Color(0, 0, 0, 1)
+theme_override_colors/font_unselected_color = Color(0, 0, 0, 1)
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_jfliu")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_i203h")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_27no4")
+tab_alignment = 2
+tab_close_display_policy = 1
+tab_count = 1
+tab_0/title = "   الصفحة الرئيسية   "
+script = ExtResource("7_28xll")
+
+[node name="fileWindowV" type="Panel" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_hl6r3")
+
+[node name="filewinclip" type="Panel" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/fileWindowV"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fm8da")
+
+[node name="ProjectFileManager" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/fileWindowV/filewinclip" node_paths=PackedStringArray("window") instance=ExtResource("3_82fp3")]
+layout_mode = 1
+window = NodePath("../../../SplitContainer/contentBackpanel/contentclip/content")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip")
+libraries = {
+"": SubResource("AnimationLibrary_rs1k3")
+}
+script = ExtResource("10_64afu")
+
+[node name="grid" parent="." instance=ExtResource("11_lpxic")]
+visible = false
+layout_mode = 1
+
+[node name="multiplayerUI" parent="." instance=ExtResource("12_enmv1")]
+visible = false
+layout_mode = 1
+offset_left = 272.0
+offset_top = 72.0
+offset_right = 272.0
+offset_bottom = 72.0
+
+[node name="png" parent="." instance=ExtResource("13_vvfxo")]
+visible = false
+offset_left = 274.0
+offset_top = 81.0
+offset_right = 274.0
+offset_bottom = 81.0
+
+[connection signal="tab_close_pressed" from="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip/tabs/TabBar" to="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip/tabs/TabBar" method="_on_tab_close_pressed"]
+[connection signal="tab_selected" from="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip/tabs/TabBar" to="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip/tabs/TabBar" method="_on_tab_selected"]

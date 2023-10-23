@@ -1,0 +1,226 @@
+[gd_scene load_steps=12 format=3 uid="uid://ds84bqikdgjtl"]
+
+[ext_resource type="Script" path="res://MiniWindow/scripts/txt.gd" id="1_3su3t"]
+[ext_resource type="Script" path="res://MiniWindow/scripts/windowbutton.gd" id="2_683eh"]
+[ext_resource type="Script" path="res://MiniWindow/scripts/resizeButton.gd" id="3_k2j82"]
+[ext_resource type="Script" path="res://MiniWindow/scripts/closebutton.gd" id="4_h4pm7"]
+[ext_resource type="Script" path="res://MiniWindow/scripts/settings.gd" id="5_hbi4w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_df6sq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tok1f"]
+bg_color = Color(0, 0, 0, 0.819608)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xouqd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_40j38"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ju6v"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_jmy1q"]
+properties/0/path = NodePath("buttonpanel:rotation")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = true
+properties/1/path = NodePath(".:position")
+properties/1/spawn = true
+properties/1/sync = true
+properties/1/watch = true
+properties/2/path = NodePath("buttonpanel/TextEdit:text")
+properties/2/spawn = true
+properties/2/sync = true
+properties/2/watch = true
+properties/3/path = NodePath("buttonpanel/TextEdit:theme_override_colors/font_color")
+properties/3/spawn = true
+properties/3/sync = true
+properties/3/watch = true
+properties/4/path = NodePath("buttonpanel:size")
+properties/4/spawn = true
+properties/4/sync = true
+properties/4/watch = true
+properties/5/path = NodePath("buttonpanel:scale")
+properties/5/spawn = true
+properties/5/sync = true
+properties/5/watch = true
+properties/6/path = NodePath("buttonpanel/TextEdit:theme_override_font_sizes/font_size")
+properties/6/spawn = true
+properties/6/sync = true
+properties/6/watch = false
+
+[node name="txt" type="Control" node_paths=PackedStringArray("panel", "textedit", "buttonpanel")]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_3su3t")
+panel = NodePath("buttonpanel/Panel")
+textedit = NodePath("buttonpanel/TextEdit")
+buttonpanel = NodePath("buttonpanel")
+
+[node name="buttonpanel" type="Button" parent="." node_paths=PackedStringArray("movenode", "mainNode")]
+clip_children = 1
+layout_mode = 0
+offset_right = 448.0
+offset_bottom = 128.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_df6sq")
+flat = true
+script = ExtResource("2_683eh")
+movenode = NodePath("..")
+mainNode = NodePath("..")
+
+[node name="Panel" type="Panel" parent="buttonpanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tok1f")
+
+[node name="TextEdit" type="TextEdit" parent="buttonpanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 32.0
+offset_bottom = -24.0
+
+[node name="resize" type="Button" parent="buttonpanel" node_paths=PackedStringArray("movenode", "mainNode")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xouqd")
+text = "."
+flat = true
+script = ExtResource("3_k2j82")
+movenode = NodePath("..")
+mainNode = NodePath("../..")
+
+[node name="close" type="Button" parent="buttonpanel"]
+layout_mode = 1
+offset_right = 28.0
+offset_bottom = 28.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_40j38")
+text = "X"
+flat = true
+script = ExtResource("4_h4pm7")
+
+[node name="settings" type="Button" parent="buttonpanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_bottom = 31.0
+grow_horizontal = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5ju6v")
+text = "@"
+flat = true
+script = ExtResource("5_hbi4w")
+
+[node name="Panel" type="Panel" parent="buttonpanel/settings"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 8.0
+offset_right = 200.0
+offset_bottom = 128.0
+grow_horizontal = 0
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="buttonpanel/settings/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -184.0
+offset_top = 8.0
+offset_right = -148.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="panelColorPickerButton" type="ColorPickerButton" parent="buttonpanel/settings/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -184.0
+offset_top = 48.0
+offset_right = -148.0
+offset_bottom = 80.0
+grow_horizontal = 0
+
+[node name="SpinBox" type="SpinBox" parent="buttonpanel/settings/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
+offset_top = 8.0
+offset_right = -21.0
+offset_bottom = 39.0
+grow_horizontal = 0
+min_value = 1.0
+max_value = 300.0
+value = 1.0
+
+[node name="SpinBox2" type="SpinBox" parent="buttonpanel/settings/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
+offset_top = 48.0
+offset_right = -21.0
+offset_bottom = 79.0
+grow_horizontal = 0
+max_value = 300.0
+value = 1.0
+
+[node name="LineEdit" type="LineEdit" parent="buttonpanel/settings/Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 88.0
+offset_right = 184.0
+offset_bottom = 119.0
+
+[node name="move" type="Button" parent="buttonpanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_right = 0.911
+offset_right = -0.128021
+offset_bottom = 31.0
+grow_horizontal = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5ju6v")
+text = "نص جديد"
+flat = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_jmy1q")
+
+[connection signal="button_down" from="buttonpanel" to="buttonpanel" method="_on_button_down"]
+[connection signal="button_up" from="buttonpanel" to="buttonpanel" method="_on_button_up"]
+[connection signal="button_down" from="buttonpanel/resize" to="buttonpanel/resize" method="_on_button_down"]
+[connection signal="button_up" from="buttonpanel/resize" to="buttonpanel/resize" method="_on_button_up"]
+[connection signal="pressed" from="buttonpanel/close" to="buttonpanel/close" method="_on_pressed"]
+[connection signal="color_changed" from="buttonpanel/settings/Panel/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
+[connection signal="color_changed" from="buttonpanel/settings/Panel/panelColorPickerButton" to="." method="_on_panel_color_picker_button_color_changed"]
+[connection signal="value_changed" from="buttonpanel/settings/Panel/SpinBox" to="." method="_on_spin_box_value_changed"]
+[connection signal="value_changed" from="buttonpanel/settings/Panel/SpinBox2" to="." method="_on_spin_box_2_value_changed"]
+[connection signal="text_changed" from="buttonpanel/settings/Panel/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="button_down" from="buttonpanel/move" to="buttonpanel" method="_on_move_button_down"]
+[connection signal="button_up" from="buttonpanel/move" to="buttonpanel" method="_on_move_button_up"]

@@ -1,0 +1,164 @@
+# LANGUAGE translation for testing for the following files:
+# res://Main/MainAndroidFlat.tscn
+# res://Main/createProjectPopup/NewProjPopup.tscn
+# res://Main/mainProjectScreen/MainProjectScreen.tscn
+# res://Main/PopupFileManager/PopupFileManager.tscn
+# res://Main/ProjectFileManager/graphname.tscn
+# res://Main/ProjectFileManager/ProjectFileManager.tscn
+# res://Main/titlebarButtons/TitleBar.tscn
+# res://Graph/Graph.tscn
+# res://Settings/settingsui.tscn
+#
+# FIRST AUTHOR < EMAIL @ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: testing\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: Main/MainAndroidFlat.tscn
+msgid " [ ] "
+msgstr ""
+
+#: Main/createProjectPopup/NewProjPopup.tscn
+msgid "مشروع جديد"
+msgstr ""
+
+#: Main/createProjectPopup/NewProjPopup.tscn
+msgid "اسم المشروع"
+msgstr ""
+
+#: Main/createProjectPopup/NewProjPopup.tscn
+msgid "الموقع"
+msgstr ""
+
+#: Main/createProjectPopup/NewProjPopup.tscn
+msgid "  اختيار  "
+msgstr ""
+
+#: Main/createProjectPopup/NewProjPopup.tscn
+msgid "text"
+msgstr ""
+
+#: Main/createProjectPopup/NewProjPopup.tscn
+msgid "لا يوجد اخطاء"
+msgstr ""
+
+#: Main/createProjectPopup/NewProjPopup.tscn
+msgid "خطأ: اما الموقع غير صحيح او يوجد مشروع قديم بنفس الاسم"
+msgstr ""
+
+#: Main/createProjectPopup/NewProjPopup.tscn
+#: Main/PopupFileManager/PopupFileManager.tscn
+#: Main/ProjectFileManager/graphname.tscn
+msgid "الغاء"
+msgstr ""
+
+#: Main/createProjectPopup/NewProjPopup.tscn
+msgid "انشئ"
+msgstr ""
+
+#: Main/mainProjectScreen/MainProjectScreen.tscn
+msgid ""
+"اهلا بعودتك\n"
+"التطبيق جاهز  للتخطيط"
+msgstr ""
+
+#: Main/mainProjectScreen/MainProjectScreen.tscn
+msgid "فتح مشروع"
+msgstr ""
+
+#: Main/mainProjectScreen/MainProjectScreen.tscn
+msgid " مشروع جديد"
+msgstr ""
+
+#: Main/PopupFileManager/PopupFileManager.tscn
+msgid "افتح مجلد"
+msgstr ""
+
+#: Main/PopupFileManager/PopupFileManager.tscn
+msgid "افتح ملف"
+msgstr ""
+
+#: Main/PopupFileManager/PopupFileManager.tscn
+msgid "  ^  "
+msgstr ""
+
+#: Main/PopupFileManager/PopupFileManager.tscn
+msgid ""
+"فتح\n"
+""
+msgstr ""
+
+#: Main/ProjectFileManager/graphname.tscn
+msgid "اسم الملف"
+msgstr ""
+
+#: Main/ProjectFileManager/graphname.tscn
+msgid ""
+"تاكيد\n"
+""
+msgstr ""
+
+#: Main/ProjectFileManager/ProjectFileManager.tscn
+msgid "استيراد"
+msgstr ""
+
+#: Main/ProjectFileManager/ProjectFileManager.tscn
+msgid "جديد"
+msgstr ""
+
+#: Main/ProjectFileManager/ProjectFileManager.tscn
+msgid "     ^     "
+msgstr ""
+
+#: Main/ProjectFileManager/ProjectFileManager.tscn
+msgid "مدير الملفات"
+msgstr ""
+
+#: Main/titlebarButtons/TitleBar.tscn
+msgid "اعدادات"
+msgstr ""
+
+#: Main/titlebarButtons/TitleBar.tscn
+msgid "تعديل"
+msgstr ""
+
+#: Main/titlebarButtons/TitleBar.tscn
+msgid "مشروع"
+msgstr ""
+
+#: Graph/Graph.tscn
+msgid "> <"
+msgstr ""
+
+#: Graph/Graph.tscn
+msgid ""
+"+\n"
+""
+msgstr ""
+
+#: Graph/Graph.tscn
+msgid "s"
+msgstr ""
+
+#: Settings/settingsui.tscn
+msgid "حجم واجهة المستخدم"
+msgstr ""
+
+#: Settings/settingsui.tscn
+msgid "  سرعة التحريك  "
+msgstr ""
+
+#: Settings/settingsui.tscn
+msgid "تحريك سلس  ( يفضل عدم لمس هذا الخيار )"
+msgstr ""
+
+#: Settings/settingsui.tscn
+msgid ""
+"X\n"
+""
+msgstr ""

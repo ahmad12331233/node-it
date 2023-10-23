@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtx1wqa2ocsvb"]
+
+[ext_resource type="Script" path="res://Main/ProjectFileManager/scripts/Folder.gd" id="1_ccisy"]
+[ext_resource type="PackedScene" uid="uid://dfjukyau5egf6" path="res://animation/fileanimation.tscn" id="2_n21qe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sf2e2"]
+
+[node name="Folder" type="Control"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ccisy")
+
+[node name="Control" parent="." instance=ExtResource("2_n21qe")]
+layout_mode = 1
+
+[node name="BoxContainer" type="BoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = -10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="button" type="Button" parent="Control/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.294118, 0.294118, 0.294118, 1)
+theme_override_colors/font_hover_color = Color(0.454902, 0.454902, 0.454902, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.439216, 0.439216, 0.439216, 1)
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sf2e2")
+text = "folder"
+flat = true
+
+[connection signal="pressed" from="Control/BoxContainer/button" to="." method="_on_button_pressed"]

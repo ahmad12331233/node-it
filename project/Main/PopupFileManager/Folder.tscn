@@ -1,0 +1,118 @@
+[gd_scene load_steps=9 format=3 uid="uid://wdr3csqxuuvr"]
+
+[ext_resource type="Script" path="res://Main/PopupFileManager/scripts/Folder.gd" id="1_fr1dn"]
+[ext_resource type="Script" path="res://Main/PopupFileManager/scripts/DeleteButton.gd" id="2_7tnn4"]
+[ext_resource type="PackedScene" uid="uid://dfjukyau5egf6" path="res://animation/fileanimation.tscn" id="2_ruack"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ia3nh"]
+bg_color = Color(0.937255, 0.792157, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ug6wg"]
+bg_color = Color(0.8, 1, 0.603922, 1)
+border_color = Color(0.603922, 0.603922, 0.603922, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_color = Color(0, 0, 0, 0.12549)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_buqco"]
+bg_color = Color(0.654902, 1, 0.427451, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_color = Color(0, 0, 0, 0.054902)
+shadow_size = 30
+shadow_offset = Vector2(0, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e12i2"]
+bg_color = Color(0.45098, 0.87451, 0.262745, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.0941176)
+shadow_size = 50
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sf2e2"]
+
+[node name="Folder" type="Control"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fr1dn")
+
+[node name="Control" parent="." instance=ExtResource("2_ruack")]
+layout_mode = 1
+
+[node name="BoxContainer" type="BoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="icon" type="Control" parent="Control/BoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Control/BoxContainer/icon"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.14
+anchor_top = 0.176
+anchor_right = 0.9
+anchor_bottom = 0.824
+offset_top = -0.0480118
+offset_bottom = 0.0479736
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ia3nh")
+
+[node name="button" type="Button" parent="Control/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.380392, 0.380392, 0.380392, 1)
+theme_override_colors/font_hover_color = Color(0.517647, 0.517647, 0.517647, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.403922, 0.403922, 0.403922, 1)
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_ug6wg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_buqco")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e12i2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sf2e2")
+text = "folder"
+flat = true
+alignment = 0
+
+[node name="Button" type="Button" parent="Control/BoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.27451, 0.27451, 0.27451, 1)
+theme_override_colors/font_hover_color = Color(0.619608, 0.619608, 0.619608, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.431373, 0.431373, 0.431373, 1)
+theme_override_font_sizes/font_size = 20
+text = "  X  "
+flat = true
+script = ExtResource("2_7tnn4")
+
+[connection signal="button_down" from="Control/BoxContainer/button" to="." method="_on_button_button_down"]
+[connection signal="pressed" from="Control/BoxContainer/button" to="." method="_on_button_pressed"]
