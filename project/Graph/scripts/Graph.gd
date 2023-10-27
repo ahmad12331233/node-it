@@ -6,7 +6,7 @@ var loaded = false
 
 
 func Fsave():
-	var file = FileAccess.open(filepath,FileAccess.WRITE)
+	var file = FileAccess.open_encrypted_with_pass(filepath,FileAccess.WRITE,"hehehe")
 	var iconpatharray = filepath.split(".")
 	iconpatharray.remove_at(iconpatharray.size()-1)
 	var iconpath : String = "".join(iconpatharray)
@@ -16,6 +16,9 @@ func Fsave():
 	var scal = $garphwindow/Zoom.scale.x
 	file.store_line("___[cfg]," + String.num(pos.x) + "," + String.num(pos.y) + "," + String.num(scal))
 	for node in worldorigin.get_children():
+		if !node.has_method("ssave"):
+			OS.alert("node " + node.name + " has no method to save error")
+			continue
 		file.store_line( "___" + node.ssave() )
 		pass
 	file.close()
@@ -24,8 +27,8 @@ func Fsave():
 var path
 func Fload(_path):
 	if get_tree() == null: return
-	get_tree().create_timer(0.2).timeout.connect(FloadDelayed)
 	path = _path
+	FloadDelayed()
 	pass
 
 
@@ -33,10 +36,14 @@ func FloadDelayed():
 	if get_tree() == null: return
 	filepath = path
 	loaded = true
-	var file = FileAccess.open(path,FileAccess.READ)
-	if file == null: return
+	
+	var file = FileAccess.open_encrypted_with_pass(filepath,FileAccess.READ,"hehehe")
+	if file == null:
+		file = FileAccess.open(filepath,FileAccess.READ)
+		if file.get_as_text().split("___").size() > 1 : OS.alert("الملف تالف ولكن سيتم محاولة اصلاحه...")
 	var FileFtext = file.get_as_text()
-	var lines = FileFtext.split("___")
+	var lines : PackedStringArray = FileFtext.split("___")
+	
 	for line in lines:
 		var colums = line.split(",")
 		#load types
@@ -68,7 +75,7 @@ func loadpng(arr : PackedStringArray):
 	var _imagepath = arr[5]
 	var _position = Vector2(arr[1].to_float() ,arr[2].to_float())
 	var _scale = Vector2(arr[3].to_float() ,arr[4].to_float())
-	inst.lload(_position,_scale,_imagepath)
+	inst.lload(_position,_scale, _imagepath.split("\n")[0])
 
 func loadtxt(arr : PackedStringArray):
 	if arr.size() < 16:
@@ -83,7 +90,7 @@ func loadtxt(arr : PackedStringArray):
 	var _panel_color = Color(arr[10].to_float(),arr[11].to_float(),arr[12].to_float(),arr[13].to_float())
 	var _corner_rad = arr[14].to_float()
 	var _title = arr[15]
-	var _text = arr[16].split("\\n")
+	var _text = arr[16].split("\n")[0].split("\\n")
 	inst.lload(_position,_scale,_font_scale,_text_color,_panel_color,_corner_rad,_title,_text)
 
 func loadgraph(arr : PackedStringArray):

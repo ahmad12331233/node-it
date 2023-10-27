@@ -16,7 +16,7 @@ func getpoints():
 
 func getcurrentpoints(line2d):
 	var output = ""
-	for a in range(line2d.get_point_count()-1):
+	for a in range(line2d.get_point_count()):
 		output += String.num(line2d.get_point_position(a).x) + "//" + String.num(line2d.get_point_position(a).y) + "NNN"
 	return output
 

@@ -9,10 +9,28 @@ var control : Control
 var drag = false
 var inst : Control
 
+func _ready():
+	get_tree().create_timer(0.3).timeout.connect(delayedready)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func delayedready():
+	if Events.projectpath == "": return
+	var parts = _str.split(".")
+	if parts.size() > 0:
+		parts.remove_at(parts.size() - 1)
+	var string = ""
+	for part in parts:
+		string += part + "."
+	string += "png"
+	var image = Image.new()
+	if !FileAccess.file_exists(path + "/" + string): return
+	image.load(path + "/" + string)
+	var tex = ImageTexture.create_from_image(image)
+	$Control/BoxContainer/Control/Panel/TextureRect.texture = tex
+	pass
+
+
 func _process(_delta):
-	$Control/BoxContainer/button.text = _str.split(".")[0]
+	$Control/BoxContainer/Control/Panel/button.text = _str.split(".")[0]
 	if drag:
 		var win = control.window.get_current_tab_control().worldorigin
 		var a = inst as Control

@@ -55,8 +55,8 @@ func lload(_position,_scale,_fontsscale,_textcolor,_panelcolor,_corner_rad,_titl
 
 func _process(_delta):
 	get_node("buttonpanel/settings/Panel/SpinBox").value = textedit.get_theme_font_size("font_size")
-	get_node("buttonpanel/settings/Panel/SpinBox2").value = corner_rad
-	
+	#get_node("buttonpanel/settings/Panel/SpinBox2").value = corner_rad
+	pass
 
 func _on_color_picker_button_color_changed(_color):
 	textedit.add_theme_color_override("font_color",_color)

@@ -9,8 +9,8 @@ func _process(_delta):
 	isvalid = DirAccess.dir_exists_absolute(path) && !DirAccess.dir_exists_absolute(path + "/" + projname)
 	if isvalid:
 		
-		text = "لا يوجد اخطاء"
+		text = "no errors"
 		
 	else:
-		text = "خطأ: اما الموقع غير صحيح او يوجد مشروع قديم بنفس الاسم"
+		text = "error change the name or path"
 	pass

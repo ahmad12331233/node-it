@@ -30,12 +30,10 @@ corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ius0y"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43v82"]
-content_margin_left = 2048.0
-bg_color = Color(1, 1, 1, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dmju6"]
 
 [sub_resource type="Theme" id="Theme_dn6yp"]
-VScrollBar/styles/grabber = SubResource("StyleBoxFlat_43v82")
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_dmju6")
 VScrollBar/styles/grabber_highlight = null
 VScrollBar/styles/grabber_pressed = null
 VScrollBar/styles/scroll = null
@@ -99,7 +97,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_v18gn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_si13c")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wqd67")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ius0y")
-text = "استيراد"
+text = "import"
 script = ExtResource("1_436nk")
 
 [node name="createfile" type="Button" parent="BoxContainer/filepanel/BoxContainer/filebox"]
@@ -115,7 +113,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_v18gn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_si13c")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wqd67")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ius0y")
-text = "جديد"
+text = "new"
 script = ExtResource("3_2o04p")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="BoxContainer"]
@@ -127,12 +125,12 @@ theme = SubResource("Theme_dn6yp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_a0olb")
 scroll_deadzone = 5
 
-[node name="BoxContainer" type="BoxContainer" parent="BoxContainer/ScrollContainer"]
+[node name="BoxContainer" type="FlowContainer" parent="BoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/separation = 0
-vertical = true
+mouse_filter = 2
+alignment = 1
 
 [node name="pathPanel" type="Panel" parent="BoxContainer"]
 custom_minimum_size = Vector2(0, 60)
@@ -171,7 +169,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 15
-text = "مدير الملفات"
+text = "FileView"
 horizontal_alignment = 2
 vertical_alignment = 1
 

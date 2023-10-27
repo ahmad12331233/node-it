@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ds84bqikdgjtl"]
+[gd_scene load_steps=14 format=3 uid="uid://ds84bqikdgjtl"]
 
 [ext_resource type="Script" path="res://MiniWindow/scripts/txt.gd" id="1_3su3t"]
 [ext_resource type="Script" path="res://MiniWindow/scripts/windowbutton.gd" id="2_683eh"]
@@ -14,6 +14,10 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_82215"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j64rg"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xouqd"]
 
@@ -89,6 +93,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 32.0
 offset_bottom = -24.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_82215")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j64rg")
 
 [node name="resize" type="Button" parent="buttonpanel" node_paths=PackedStringArray("movenode", "mainNode")]
 layout_mode = 1

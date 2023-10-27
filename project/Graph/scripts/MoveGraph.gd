@@ -36,12 +36,12 @@ func _gui_input(event):
 			pass
 		
 	if event is InputEventMouseMotion && __scroll:
-		if Events.smoothscroll:
-			acc.y += (event.relative.y * 1/$Zoom.scale.y) * movespeed
-			acc.x += (event.relative.x * 1/$Zoom.scale.x) * movespeed
-		else:
-			acc.y = (event.relative.y * 1/$Zoom.scale.y) * movespeed
-			acc.x = (event.relative.x * 1/$Zoom.scale.x) * movespeed
+		#if Events.smoothscroll:
+		#	acc.y += (event.relative.y * 1/$Zoom.scale.y) * movespeed
+		#	acc.x += (event.relative.x * 1/$Zoom.scale.x) * movespeed
+		#else:
+		acc.y = (event.relative.y * 1/$Zoom.scale.y) * movespeed
+		acc.x = (event.relative.x * 1/$Zoom.scale.x) * movespeed
 	
 	if event is InputEventScreenTouch:
 		length_old = length
@@ -60,6 +60,10 @@ func _gui_input(event):
 
 
 func _process(_delta):
+	movespeed = Events.s_movespeed
+	stopspeed = Events.s_stopspeed
+	zoomspeed = Events.s_zoomspeed
+	scrollAMP = Events.s_moveamp
 	if zooming:
 		lengthvec = point0 - point1
 		length = sqrt((lengthvec.x * lengthvec.x) + (lengthvec.y * lengthvec.y))
@@ -67,11 +71,10 @@ func _process(_delta):
 		$Zoom.scale -= Vector2((length_motion / 1000) * zoomspeed ,(length_motion / 1000) * zoomspeed) 
 	length_old = length
 	
-	movespeed = Events.movespeed
 	$Zoom/worldOrigin.position += acc
 	acc -= acc * stopspeed * _delta
 	
-	if __scroll == true && !Events.smoothscroll:
-		acc = 0.3 * acc
+	if __scroll == true:
+		acc = 0.4 * acc
 	
 	pass

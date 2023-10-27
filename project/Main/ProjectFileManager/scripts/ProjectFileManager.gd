@@ -3,13 +3,18 @@ extends Control
 var path : String
 @export var window : TabContainer
 
-
+func _ready():
+	Events.updateFileManagers.connect(update)
+	
+	pass
 
 func updatepath():
-	path = get_tree().root.get_child(1).ProjectPath
+	path = Events.projectpath
 
-func update():
-	var container : BoxContainer = $BoxContainer/ScrollContainer/BoxContainer
+func update(_updatepath = false):
+	if _updatepath:
+		updatepath()
+	var container = $BoxContainer/ScrollContainer/BoxContainer
 	for a in container.get_children():
 		a.queue_free()
 		pass
@@ -27,6 +32,7 @@ func update():
 		if dir.get_files().size() >= 1:
 			for a in dir.get_files():
 				if a.get_extension() == "proj" : continue
+				if a.get_extension() != "graph" : continue
 				var inst = preload("res://Main/ProjectFileManager/file.tscn").instantiate()
 				container.add_child(inst)
 				inst._str = a

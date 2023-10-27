@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://mqew2uw53p5r"]
+[gd_scene load_steps=12 format=3 uid="uid://mqew2uw53p5r"]
 
 [ext_resource type="Script" path="res://Main/titlebarButtons/scripts/TitleBar.gd" id="1_ws2qi"]
 [ext_resource type="Script" path="res://Main/titlebarButtons/scripts/settings.gd" id="2_s6pwh"]
+[ext_resource type="Script" path="res://Main/titlebarButtons/scripts/projectbutton.gd" id="3_jwcx1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssihf"]
 content_margin_left = 5.0
@@ -13,6 +14,8 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.235294)
+shadow_size = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i7bdj"]
 content_margin_left = 5.0
@@ -22,37 +25,87 @@ content_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nbsdq"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6asw"]
-bg_color = Color(0.682353, 0.964706, 0.568627, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 1.0
-expand_margin_top = 1.0
-expand_margin_right = 1.0
-expand_margin_bottom = 1.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7llfn"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65kw8"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0.768627, 0.956863, 0.643137, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbpo4"]
+bg_color = Color(0.498039, 0.839216, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.313726)
+shadow_size = 5
 
-[sub_resource type="Theme" id="Theme_6f0hc"]
-PopupMenu/colors/font_color = Color(0, 0, 0, 1)
-PopupMenu/colors/font_hover_color = Color(0, 0, 0, 1)
-PopupMenu/constants/v_separation = 25
-PopupMenu/styles/hover = SubResource("StyleBoxFlat_f6asw")
-PopupMenu/styles/panel = SubResource("StyleBoxFlat_65kw8")
+[sub_resource type="Animation" id="Animation_ntoxj"]
+resource_name = "close"
+
+[sub_resource type="Animation" id="Animation_gp464"]
+resource_name = "open"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(30, -0.25, 0, 0.1, 20, 50, -0.9, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/Control:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/Control:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-70, -0.25, 0, 0.1, 53, 0, -0.9, -6, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iojcc"]
+_data = {
+"close": SubResource("Animation_ntoxj"),
+"open": SubResource("Animation_gp464")
+}
 
 [node name="TirleBar" type="HBoxContainer"]
-custom_minimum_size = Vector2(270, 40)
+custom_minimum_size = Vector2(230, 40)
 theme_override_constants/separation = 10
 script = ExtResource("1_ws2qi")
 
@@ -83,44 +136,145 @@ theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxEmpty_i7bdj")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nbsdq")
-text = "اعدادات"
+text = "settings"
 flat = true
 script = ExtResource("2_s6pwh")
 
-[node name="edit" type="MenuButton" parent="Panel/BoxContainer"]
-layout_direction = 3
+[node name="projectbutton" type="Button" parent="Panel/BoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = SubResource("Theme_6f0hc")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_colors/font_pressed_color = Color(0.631373, 0.631373, 0.631373, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.372549, 0.372549, 0.372549, 1)
 theme_override_font_sizes/font_size = 20
-text = "تعديل"
-item_count = 2
-popup/item_0/text = "ترجيع"
-popup/item_0/id = 0
-popup/item_1/text = "تقديم"
-popup/item_1/id = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7llfn")
+text = "project"
+flat = true
+script = ExtResource("3_jwcx1")
 
-[node name="project" type="MenuButton" parent="Panel/BoxContainer"]
+[node name="Panel" type="Panel" parent="Panel/BoxContainer/projectbutton"]
+visible = false
+show_behind_parent = true
+clip_children = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.343
+anchor_top = 1.0
+anchor_right = 1.105
+anchor_bottom = 1.0
+offset_left = 0.0150032
+offset_top = -10.0
+offset_right = -0.0250015
+offset_bottom = 212.001
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pbpo4")
+
+[node name="Control" type="Control" parent="Panel/BoxContainer/projectbutton/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -70.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="Panel/BoxContainer/projectbutton/Panel/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_right = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+vertical = true
+
+[node name="space" type="Control" parent="Panel/BoxContainer/projectbutton/Panel/Control/BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="new" type="Button" parent="Panel/BoxContainer/projectbutton/Panel/Control/BoxContainer"]
 layout_direction = 3
 layout_mode = 2
 size_flags_horizontal = 3
-theme = SubResource("Theme_6f0hc")
+size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_colors/font_hover_color = Color(0.278431, 0.278431, 0.278431, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
-text = "مشروع"
-item_count = 4
-popup/item_0/text = "جديد"
-popup/item_0/id = 0
-popup/item_1/text = "فتح"
-popup/item_1/id = 2
-popup/item_2/text = "حفظ"
-popup/item_2/id = 2
-popup/item_3/text = "استخراج"
-popup/item_3/id = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nbsdq")
+text = "new project"
+flat = true
+alignment = 0
+
+[node name="open" type="Button" parent="Panel/BoxContainer/projectbutton/Panel/Control/BoxContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.278431, 0.278431, 0.278431, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i7bdj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nbsdq")
+text = "open project"
+flat = true
+alignment = 0
+
+[node name="save" type="Button" parent="Panel/BoxContainer/projectbutton/Panel/Control/BoxContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.278431, 0.278431, 0.278431, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i7bdj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nbsdq")
+text = "save all"
+flat = true
+alignment = 0
+
+[node name="export" type="Button" parent="Panel/BoxContainer/projectbutton/Panel/Control/BoxContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.278431, 0.278431, 0.278431, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i7bdj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nbsdq")
+text = "export"
+flat = true
+alignment = 0
+
+[node name="space2" type="Control" parent="Panel/BoxContainer/projectbutton/Panel/Control/BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/BoxContainer/projectbutton"]
+libraries = {
+"": SubResource("AnimationLibrary_iojcc")
+}
+
+[connection signal="button_down" from="Panel/BoxContainer/projectbutton/Panel/Control/BoxContainer/new" to="." method="_on_new_button_down"]
+[connection signal="button_down" from="Panel/BoxContainer/projectbutton/Panel/Control/BoxContainer/open" to="." method="_on_open_button_down"]

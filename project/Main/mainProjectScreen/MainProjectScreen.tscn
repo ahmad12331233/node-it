@@ -80,7 +80,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-200, -0.25, 0, 0.2, 552, 398, -1.5, 0, 0.25, 0),
+"points": PackedFloat32Array(-200, -0.25, 0, 0.2, 552, 470, -1.5, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 2)
 }
 tracks/4/type = "bezier"
@@ -115,9 +115,9 @@ anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 341.0
-offset_top = 398.0
+offset_top = 470.0
 offset_right = 341.0
-offset_bottom = 398.0
+offset_bottom = 469.999
 mouse_filter = 2
 script = ExtResource("1_uwygr")
 
@@ -152,15 +152,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 0.000366211
+offset_bottom = 0.000396729
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.756863, 0.756863, 0.756863, 1)
 theme_override_font_sizes/font_size = 40
-text = "اهلا بعودتك
-التطبيق جاهز  للتخطيط"
+text = "useless text"
 horizontal_alignment = 2
-vertical_alignment = 1
+vertical_alignment = 2
 autowrap_mode = 3
 
 [node name="BoxContainer" type="BoxContainer" parent="VBoxContainer"]
@@ -174,6 +173,7 @@ changeSize = true
 [node name="Control" type="Control" parent="VBoxContainer/BoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="openproj" type="Button" parent="VBoxContainer/BoxContainer/Control"]
 layout_mode = 1
@@ -194,12 +194,13 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_bp721")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ghkh2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_shvne")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tqf5v")
-text = "فتح مشروع"
+text = "open grid"
 script = ExtResource("4_oatb2")
 
 [node name="Control2" type="Control" parent="VBoxContainer/BoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="newproj" type="Button" parent="VBoxContainer/BoxContainer/Control2"]
 layout_mode = 1
@@ -220,7 +221,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_bp721")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ghkh2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_shvne")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tqf5v")
-text = " مشروع جديد"
+text = "new grid"
 script = ExtResource("2_tv4bb")
 
 [node name="Control" type="Control" parent="VBoxContainer"]

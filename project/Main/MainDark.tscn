@@ -1,34 +1,28 @@
 [gd_scene load_steps=29 format=3 uid="uid://dp0ebnf6cycak"]
 
-[ext_resource type="Script" path="res://Main/scripts/MainAndroid.gd" id="1_n2hxi"]
-[ext_resource type="Script" path="res://Main/scripts/(HV)SplitContainer.gd" id="2_0741m"]
-[ext_resource type="PackedScene" uid="uid://dfbjxd4s2mhoi" path="res://Main/ProjectFileManager/ProjectFileManager.tscn" id="3_82fp3"]
-[ext_resource type="Script" path="res://Main/scripts/content.gd" id="4_btmsq"]
-[ext_resource type="PackedScene" uid="uid://bbn018cf0e51f" path="res://Main/mainProjectScreen/MainProjectScreen.tscn" id="5_4u2i3"]
-[ext_resource type="Script" path="res://Main/scripts/TabBar.gd" id="7_28xll"]
-[ext_resource type="PackedScene" uid="uid://mqew2uw53p5r" path="res://Main/titlebarButtons/TitleBar.tscn" id="8_t68rj"]
-[ext_resource type="Script" path="res://Main/scripts/fullscreen.gd" id="9_iyyr4"]
-[ext_resource type="Script" path="res://Main/scripts/AnimationPlayer.gd" id="10_64afu"]
-[ext_resource type="PackedScene" uid="uid://dmxo8ol23rh3n" path="res://Graph/Graph.tscn" id="11_lpxic"]
-[ext_resource type="PackedScene" uid="uid://dsrlyf47xipi8" path="res://multiplayer/multiplayerUI.tscn" id="12_enmv1"]
-[ext_resource type="PackedScene" uid="uid://ds84bqikdgjtl" path="res://MiniWindow/txt.tscn" id="13_vvfxo"]
+[ext_resource type="Script" path="res://Main/scripts/MainAndroid.gd" id="1_buq3g"]
+[ext_resource type="Script" path="res://Main/scripts/(HV)SplitContainer.gd" id="2_e0etu"]
+[ext_resource type="Script" path="res://Main/scripts/content.gd" id="3_vgxrf"]
+[ext_resource type="PackedScene" uid="uid://bbn018cf0e51f" path="res://Main/mainProjectScreen/MainProjectScreen.tscn" id="4_p807w"]
+[ext_resource type="Script" path="res://Main/scripts/fullscreen.gd" id="5_kyrx2"]
+[ext_resource type="PackedScene" uid="uid://mqew2uw53p5r" path="res://Main/titlebarButtons/TitleBar.tscn" id="6_4g881"]
+[ext_resource type="Script" path="res://Main/scripts/TabBar.gd" id="7_t5pya"]
+[ext_resource type="PackedScene" uid="uid://dfbjxd4s2mhoi" path="res://Main/ProjectFileManager/ProjectFileManager.tscn" id="8_6sjcn"]
+[ext_resource type="Script" path="res://Main/scripts/AnimationPlayer.gd" id="9_qwi5j"]
+[ext_resource type="PackedScene" uid="uid://dmxo8ol23rh3n" path="res://Graph/Graph.tscn" id="10_notgc"]
+[ext_resource type="PackedScene" uid="uid://dsrlyf47xipi8" path="res://multiplayer/multiplayerUI.tscn" id="11_wwn3r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ifu4"]
-bg_color = Color(0.121569, 0.121569, 0.121569, 1)
+bg_color = Color(0.137255, 0.137255, 0.137255, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vrb8u"]
-bg_color = Color(0, 0, 0, 1)
-shadow_color = Color(0, 0, 0, 0.219608)
-shadow_size = 5
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_exdfq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vioos"]
+bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5der"]
 bg_color = Color(0.235294, 0.235294, 0.235294, 1)
-shadow_color = Color(0, 0, 0, 0.12549)
-shadow_size = 5
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0vet7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gts4k"]
+bg_color = Color(0.168627, 0.168627, 0.168627, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssihf"]
 content_margin_left = 5.0
@@ -113,6 +107,13 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vrb8u"]
+bg_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.219608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04wgi"]
+bg_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hl6r3"]
 bg_color = Color(0, 0, 0, 1)
 shadow_color = Color(0, 0, 0, 0.180392)
@@ -126,12 +127,12 @@ length = 2.0
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("tabs/TabBar:position:x")
+tracks/0/path = NodePath("tabs/TabBar:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-200, -0.25, 0, 1.3, 2, 0, -1.7, -3, 0.25, 0),
+"points": PackedFloat32Array(-100, -0.25, 0, 1.3, 2, 0, -1.7, -3, 0.25, 0),
 "times": PackedFloat32Array(0, 2)
 }
 tracks/1/type = "bezier"
@@ -180,7 +181,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_n2hxi")
+script = ExtResource("1_buq3g")
 
 [node name="window" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -223,7 +224,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 0
 theme_override_constants/minimum_grab_thickness = 30
 vertical = true
-script = ExtResource("2_0741m")
+script = ExtResource("2_e0etu")
 
 [node name="SplitContainer" type="SplitContainer" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer"]
 custom_minimum_size = Vector2(0, 100)
@@ -233,36 +234,13 @@ size_flags_stretch_ratio = 2.0
 theme_override_constants/separation = 0
 theme_override_constants/minimum_grab_thickness = 30
 
-[node name="fileWindowH" type="Panel" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_vrb8u")
-
-[node name="filewinclip" type="Panel" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/fileWindowH"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 10.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_exdfq")
-
-[node name="ProjectFileManager" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/fileWindowH/filewinclip" node_paths=PackedStringArray("window") instance=ExtResource("3_82fp3")]
-layout_mode = 1
-window = NodePath("../../../contentBackpanel/contentclip/content")
-
 [node name="contentBackpanel" type="Panel" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_b5der")
+theme_override_styles/panel = SubResource("StyleBoxFlat_vioos")
 
 [node name="contentclip" type="Panel" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel"]
 layout_mode = 1
@@ -285,11 +263,11 @@ grow_vertical = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 theme_override_font_sizes/font_size = 20
-theme_override_styles/panel = SubResource("StyleBoxEmpty_0vet7")
+theme_override_styles/panel = SubResource("StyleBoxFlat_gts4k")
 tabs_visible = false
-script = ExtResource("4_btmsq")
+script = ExtResource("3_vgxrf")
 
-[node name="Main Page" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip/content" instance=ExtResource("5_4u2i3")]
+[node name="Main Page" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip/content" instance=ExtResource("4_p807w")]
 layout_mode = 2
 
 [node name="tabs" type="FlowContainer" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip"]
@@ -328,13 +306,13 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_swrhj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ptirk")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_dkly2")
 text = " [ ] "
-script = ExtResource("9_iyyr4")
+script = ExtResource("5_kyrx2")
 
 [node name="Control" type="Control" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip/tabs"]
-custom_minimum_size = Vector2(270, 40)
+custom_minimum_size = Vector2(230, 40)
 layout_mode = 2
 
-[node name="TitleBar" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip/tabs/Control" instance=ExtResource("8_t68rj")]
+[node name="TitleBar" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip/tabs/Control" instance=ExtResource("6_4g881")]
 layout_direction = 2
 layout_mode = 1
 anchors_preset = 15
@@ -344,7 +322,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TabBar" type="TabBar" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip/tabs"]
-custom_minimum_size = Vector2(200, 40)
+custom_minimum_size = Vector2(220, 40)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 6.0
@@ -355,11 +333,32 @@ theme_override_colors/font_unselected_color = Color(0, 0, 0, 1)
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_jfliu")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_i203h")
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_27no4")
-tab_alignment = 2
 tab_close_display_policy = 1
 tab_count = 1
-tab_0/title = "   الصفحة الرئيسية   "
-script = ExtResource("7_28xll")
+tab_0/title = "Welcome screen"
+script = ExtResource("7_t5pya")
+
+[node name="fileWindowH" type="Panel" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vrb8u")
+
+[node name="filewinclip" type="Panel" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/fileWindowH"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_04wgi")
+
+[node name="ProjectFileManager" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/fileWindowH/filewinclip" node_paths=PackedStringArray("window") instance=ExtResource("8_6sjcn")]
+layout_mode = 1
+window = NodePath("../../../contentBackpanel/contentclip/content")
 
 [node name="fileWindowV" type="Panel" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer"]
 custom_minimum_size = Vector2(0, 50)
@@ -379,7 +378,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_fm8da")
 
-[node name="ProjectFileManager" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/fileWindowV/filewinclip" node_paths=PackedStringArray("window") instance=ExtResource("3_82fp3")]
+[node name="ProjectFileManager" parent="window/windowBackpanel/windowholder/MainVbox/SplitContainer/fileWindowV/filewinclip" node_paths=PackedStringArray("window") instance=ExtResource("8_6sjcn")]
 layout_mode = 1
 window = NodePath("../../../SplitContainer/contentBackpanel/contentclip/content")
 
@@ -388,26 +387,19 @@ root_node = NodePath("../window/windowBackpanel/windowholder/MainVbox/SplitConta
 libraries = {
 "": SubResource("AnimationLibrary_rs1k3")
 }
-script = ExtResource("10_64afu")
+script = ExtResource("9_qwi5j")
 
-[node name="grid" parent="." instance=ExtResource("11_lpxic")]
+[node name="grid" parent="." instance=ExtResource("10_notgc")]
 visible = false
 layout_mode = 1
 
-[node name="multiplayerUI" parent="." instance=ExtResource("12_enmv1")]
+[node name="multiplayerUI" parent="." instance=ExtResource("11_wwn3r")]
 visible = false
 layout_mode = 1
 offset_left = 272.0
 offset_top = 72.0
 offset_right = 272.0
 offset_bottom = 72.0
-
-[node name="png" parent="." instance=ExtResource("13_vvfxo")]
-visible = false
-offset_left = 274.0
-offset_top = 81.0
-offset_right = 274.0
-offset_bottom = 81.0
 
 [connection signal="tab_close_pressed" from="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip/tabs/TabBar" to="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip/tabs/TabBar" method="_on_tab_close_pressed"]
 [connection signal="tab_selected" from="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip/tabs/TabBar" to="window/windowBackpanel/windowholder/MainVbox/SplitContainer/SplitContainer/contentBackpanel/contentclip/tabs/TabBar" method="_on_tab_selected"]

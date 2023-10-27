@@ -219,7 +219,7 @@ vertical = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 20
-text = "افتح ملف"
+text = "open"
 horizontal_alignment = 1
 
 [node name="h" type="BoxContainer" parent="Control/popup/BoxContainer/pathPanel/v"]
@@ -309,7 +309,6 @@ script = ExtResource("2_eksfi")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/separation = 5
 vertical = true
 
 [node name="filepanel" type="Panel" parent="Control/popup/BoxContainer"]
@@ -349,7 +348,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_d5af4")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rclf3")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ucuvl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ius0y")
-text = "الغاء"
+text = "cancel"
 script = ExtResource("2_wj06s")
 
 [node name="open" type="Button" parent="Control/popup/BoxContainer/filepanel/BoxContainer/filebox"]
@@ -365,7 +364,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_d5af4")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rclf3")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ucuvl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ius0y")
-text = "فتح
+text = "accept
 "
 script = ExtResource("3_4xqfk")
 

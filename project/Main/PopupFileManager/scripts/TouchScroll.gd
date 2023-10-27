@@ -1,10 +1,5 @@
 extends ScrollContainer
 
-var movespeed = 1
-var stopspeed = 1.5
-var zoomspeed = 1
-var scrollAMP = 1.5
-
 var acc = Vector2()
 var __scroll = false
 
@@ -16,22 +11,20 @@ func _input(event):
 			if event.is_released():
 				__scroll = false
 				#if !(acc < Vector2(5,5) && acc > Vector2(-5,-5)):
-				acc *= scrollAMP
+				acc *= Events.s_moveamp
 	if event is InputEventMouseMotion && __scroll:
-		if Events.smoothscroll:
-			acc.y += event.relative.y * movespeed
-			acc.x += event.relative.x * movespeed
-		else:
-			acc.y = event.relative.y * movespeed
-			acc.x = event.relative.x * movespeed
+		#if Events.smoothscroll:
+		#	acc.y += event.relative.y * movespeed
+		#	acc.x += event.relative.x * movespeed
+		#else:
+		acc.y = event.relative.y * Events.s_movespeed
+		acc.x = event.relative.x * Events.s_movespeed
 		accept_event()
 
 
 func _process(_delta):
-	movespeed = Events.movespeed
 	scroll_vertical -= acc.y
-	acc -= acc * stopspeed * _delta
-	if __scroll == true && !Events.smoothscroll:
-		acc = 0.3 * acc
-	
+	acc -= acc * Events.s_movespeed * _delta
+	if __scroll == true:
+		acc = 0.4 * acc
 	pass

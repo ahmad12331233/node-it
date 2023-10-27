@@ -18,20 +18,24 @@ func _gui_input(event):
 				acc *= scrollAMP
 	
 	if event is InputEventMouseMotion && __scroll:
-		if Events.smoothscroll:
-			acc.y += (event.relative.y * 1/$"../Zoom".scale.y) * movespeed
-			acc.x += (event.relative.x * 1/$"../Zoom".scale.x) * movespeed
-		else:
-			acc.y = (event.relative.y * 1/$"../Zoom".scale.y) * movespeed
-			acc.x = (event.relative.x * 1/$"../Zoom".scale.x) * movespeed
+		#if Events.smoothscroll:
+		#	acc.y += (event.relative.y * 1/$"../Zoom".scale.y) * movespeed
+		#	acc.x += (event.relative.x * 1/$"../Zoom".scale.x) * movespeed
+		#else:
+		acc.y = (event.relative.y * 1/$"../Zoom".scale.y) * movespeed
+		acc.x = (event.relative.x * 1/$"../Zoom".scale.x) * movespeed
 	
 	
 
 func _process(_delta):
-	movespeed = Events.movespeed
+	movespeed = Events.s_movespeed
+	stopspeed = Events.s_stopspeed
+	zoomspeed = Events.s_zoomspeed
+	scrollAMP = Events.s_moveamp
+	
 	$"../Zoom/worldOrigin".position += acc
 	$"../Zoom/Line2D".position += acc
 	acc -= acc * stopspeed * _delta
-	if __scroll == true && !Events.smoothscroll:
-		acc = 0.3 * acc
+	if __scroll == true:
+		acc = 0.4 * acc
 	

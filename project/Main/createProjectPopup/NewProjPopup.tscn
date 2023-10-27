@@ -103,14 +103,14 @@ layout_mode = 1
 [node name="popupPanel" type="Panel" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.091
-anchor_top = 0.149
-anchor_right = 0.907
-anchor_bottom = 0.858
-offset_left = -0.252007
-offset_top = -0.0272942
-offset_right = -0.204041
-offset_bottom = 0.0643005
+anchor_left = 0.076
+anchor_top = 0.21
+anchor_right = 0.935
+anchor_bottom = 0.84
+offset_left = 0.447998
+offset_top = -0.0804138
+offset_right = -0.120117
+offset_bottom = -0.321655
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
@@ -143,7 +143,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 22
-text = "مشروع جديد"
+text = "new project"
 horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="Control/popupPanel/BoxContainer"]
@@ -180,7 +180,7 @@ theme_override_font_sizes/bold_font_size = 30
 theme_override_font_sizes/italics_font_size = 30
 theme_override_font_sizes/bold_italics_font_size = 30
 theme_override_font_sizes/mono_font_size = 30
-text = "اسم المشروع"
+text = "project name"
 fit_content = true
 
 [node name="LineEdit" type="LineEdit" parent="Control/popupPanel/BoxContainer/Control/ProjStat/name"]
@@ -195,7 +195,7 @@ theme_override_colors/selection_color = Color(0, 0, 0, 0.45098)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_ymhn1")
 theme_override_styles/focus = SubResource("StyleBoxFlat_bx5yg")
-text = "مشروع جديد"
+text = "new project"
 alignment = 1
 
 [node name="location" type="BoxContainer" parent="Control/popupPanel/BoxContainer/Control/ProjStat"]
@@ -213,7 +213,7 @@ theme_override_font_sizes/bold_font_size = 30
 theme_override_font_sizes/italics_font_size = 30
 theme_override_font_sizes/bold_italics_font_size = 30
 theme_override_font_sizes/mono_font_size = 30
-text = "الموقع"
+text = "path"
 fit_content = true
 
 [node name="BoxContainer" type="BoxContainer" parent="Control/popupPanel/BoxContainer/Control/ProjStat/location"]
@@ -249,7 +249,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_nmbep")
 theme_override_styles/hover = SubResource("StyleBoxFlat_y6hyi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_nxpch")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_43axq")
-text = "  اختيار  "
+text = "  select  "
 script = ExtResource("2_cke8v")
 
 [node name="Label" type="Label" parent="Control/popupPanel/BoxContainer/Control/ProjStat"]
@@ -281,7 +281,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_nmbep")
 theme_override_styles/hover = SubResource("StyleBoxFlat_y6hyi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_nxpch")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_43axq")
-text = "الغاء"
+text = "cancel"
 script = ExtResource("1_80i53")
 
 [node name="Ok" type="Button" parent="Control/popupPanel/BoxContainer/confirmPanel"]
@@ -297,7 +297,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_nmbep")
 theme_override_styles/hover = SubResource("StyleBoxFlat_y6hyi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_nxpch")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_43axq")
-text = "انشئ"
+text = "accept"
 script = ExtResource("4_i6t3u")
 
 [connection signal="on_close" from="Control" to="Control/popupPanel/BoxContainer/confirmPanel/Cancel" method="_on_control_on_close"]

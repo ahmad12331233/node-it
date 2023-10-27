@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmpq71ett0fso"]
+
+[ext_resource type="Script" path="res://Settings/scripts/setting.gd" id="1_l8wwb"]
+[ext_resource type="Script" path="res://Settings/scripts/slider.gd" id="2_tcwo4"]
+
+[node name="setting" type="BoxContainer"]
+script = ExtResource("1_l8wwb")
+
+[node name="text" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.368627, 0.368627, 0.368627, 1)
+theme_override_font_sizes/font_size = 25
+text = "حجم واجهة المستخدم"
+
+[node name="equal" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.368627, 0.368627, 0.368627, 1)
+theme_override_font_sizes/font_size = 25
+text = " = "
+
+[node name="val" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.368627, 0.368627, 0.368627, 1)
+theme_override_font_sizes/font_size = 25
+text = "num"
+horizontal_alignment = 1
+
+[node name="slider" type="HSlider" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -0.2
+max_value = 0.2
+step = 0.001
+value = -0.2
+script = ExtResource("2_tcwo4")
+
+[connection signal="drag_ended" from="slider" to="slider" method="_on_drag_ended"]

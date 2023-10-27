@@ -19,8 +19,6 @@ func _pressed():
 		var error = DirAccess.make_dir_recursive_absolute(projpath + "/" + projname)
 		if error == OK:
 			FileAccess.open(projpath + "/" + projname + "/" + "project.proj",FileAccess.WRITE)
-			get_tree().root.get_child(1).ProjectFile = projpath + "/" + projname + "/" + "project.proj"
-			get_tree().root.get_child(1).newproj()
 			Events.NewProject(projpath + "/" + projname + "/" + "project.proj")
 			
 			$"../../../..".close()

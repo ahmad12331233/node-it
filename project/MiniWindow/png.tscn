@@ -23,6 +23,7 @@ script = ExtResource("1_abje3")
 scalepanel = NodePath("pngcontainer")
 
 [node name="pngcontainer" type="Button" parent="." node_paths=PackedStringArray("movenode", "mainNode")]
+layout_mode = 0
 offset_right = 272.0
 offset_bottom = 242.0
 mouse_filter = 1

@@ -17,6 +17,7 @@ func add(WindowInstance , WindowName = ""):
 	pass
 
 func remove(tab : int):
+	if get_child(tab) == null : return
 	get_child(tab).queue_free()
 	tabbar.remove_tab(tab)
 
